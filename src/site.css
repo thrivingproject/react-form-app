@@ -1,3 +1,13 @@
 div header {
     padding-top: 3rem;
 }
+
+form p {
+    color: rgb(255, 102, 102);
+    text-decoration: underline;
+    text-decoration-color: white;
+}
+
+nav {
+    margin-bottom: 1rem;
+}

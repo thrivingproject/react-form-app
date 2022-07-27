@@ -10,7 +10,7 @@ function App() {
       </header>
 
       <main>
-        <form action='https://cs12.net/form/submit.php' method='post' onSubmit={createUser}>
+        <form action='https://cs12.net/form/submit.php' method='post'>
 
           <label>Name<input type='text' name='name'></input></label>
           <label>Email<input type='email' name='email'></input></label>

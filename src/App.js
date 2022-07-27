@@ -7,10 +7,7 @@ function App() {
 
   /* This does not work, need to figure out how to post data to endpoint */
   const onSubmit = (data) => {
-    fetch('https://cs12.net/form/submit.php', {
-      method: 'POST',
-      body: data
-    })
+    alert('Data is valid')
     console.log(data)
   }
 

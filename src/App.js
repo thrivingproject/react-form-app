@@ -1,18 +1,6 @@
 import './site.css'
-import * as yup from 'yup';
-import {userSchema} from './validations/user-validation'
 
 function App() {
-
-  const createUser = (event) => {
-    event.preventDefault()
-    let formData = {
-      name: event.target[0].value,
-      email: event.target[1].value,
-      password: event.target[2].value
-    };
-    console.log(formData);
-  }
 
   return (
     <div className="App">

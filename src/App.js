@@ -1,11 +1,22 @@
 import './site.css'
 import { useForm } from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
+
+const schema = yup.object().shape({
+  email: yup.string().email().required(),
+  password: yup.string().min(7).required(),
+  confirmPassword: yup.string().oneOf([yup.ref("password"), null])
+})
 
 function App() {
 
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: {errors} } = useForm({
+    resolver: yupResolver(schema)
+  });
 
-  /* This does not work, need to figure out how to post data to endpoint */
+  // const {register, handleSubmit, formState: {errors} } = useForm();
+
   const onSubmit = (data) => {
     alert('Data is valid')
     console.log(data)
@@ -23,32 +34,31 @@ function App() {
         <form onSubmit={handleSubmit(onSubmit)}>
 
           <label>
-            First Name
-            <input {...register('firstName', {required: 'This is required'})} type='text'/>
-            <p>{errors.firstName?.message}</p>
-          </label>
-
-          <label>
-            Last Name
-            <input {...register('lastName', {required: 'This is required'})} type='text'/>
-            <p>{errors.lastName?.message}</p>
-          </label>
-
-          <label>
             Email
-            <input {...register('email', {required: 'This is required'})} type='email'/>
+            <input {...register('email')} type='email'/>
             <p>{errors.email?.message}</p>
           </label>
 
-          {/* <button type='submit'>Submit</button> */}
-          <input type='submit'/>
+          <label>
+            Password
+            <input {...register('password')} type='password'/>
+            <p>{errors.password?.message}</p>
+          </label>
+
+          <label>
+            Confirm Password
+            <input {...register('confirmPassword')} type='password'/>
+            <p>{errors.confirmPassword && 'Your passwords do not match.'}</p>
+          </label>
+
+          <button type='submit'>Sign-up</button>
 
         </form>
 
       </main>
 
       <footer>
-        <p>Website Created by Christian Isaman for CSCI S-12 using ReactJS</p>
+        <p>Website Created by Christian Isaman for CSCI S-12 using <a href='https://reactjs.org/'>React</a>, <a href='https://react-hook-form.com/'>React Hook Form</a>, and <a href='https://github.com/jquense/yup'>Yup</a></p>
       </footer>
 
     </div>

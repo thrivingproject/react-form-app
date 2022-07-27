@@ -1,22 +1,16 @@
 import './site.css'
 import { useForm } from 'react-hook-form'
 
-type FormValues = {
-  firstName: string;
-  lastName: string;
-  email: String;
-};
-
 function App() {
 
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   /* This does not work, need to figure out how to post data to endpoint */
-  const onSubmit = (data: FormValues) => {
-    // fetch('https://cs12.net/form/submit.php', {
-    //   method: 'POST',
-    //   body: data
-    // })
+  const onSubmit = (data) => {
+    fetch('https://cs12.net/form/submit.php', {
+      method: 'POST',
+      body: data
+    })
     console.log(data)
   }
 

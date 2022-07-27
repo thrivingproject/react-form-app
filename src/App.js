@@ -26,6 +26,7 @@ function App() {
     <div className="App">
 
       <header>
+        <nav><a href='../index.html'>Home</a></nav>
         <h1>JS Form Validation</h1>
       </header>
 

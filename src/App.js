@@ -15,8 +15,6 @@ function App() {
     resolver: yupResolver(schema)
   });
 
-  // const {register, handleSubmit, formState: {errors} } = useForm();
-
   const onSubmit = (data) => {
     alert('Data is valid')
     console.log(data)

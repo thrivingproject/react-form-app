@@ -9,7 +9,7 @@ function App() {
   const onSubmit = (data) => {
     fetch('https://cs12.net/form/submit.php', {
       method: 'POST',
-      body: JSON.stringify(data)
+      body: data
     })
   }
 
